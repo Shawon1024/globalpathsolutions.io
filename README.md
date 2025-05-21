@@ -31,5 +31,5 @@ With a strong foundation in Computer Science, administration, and real-world int
 ## 📩 Contact
 
 Until our main site is live, feel free to reach out via:
-- 📧 **Email:** [hello@globalpathsolutions.co.uk](mailto:hello@globalpathsolutions.co.uk)
-- 🌍 **Website:**
+- 📧 **Email:** [contact@globalpathsolutions.co.uk](mailto:contact@globalpathsolutions.co.uk)
+- 🌍 **Website:** [www.GlobalPathSolutions.co.uk](www.globalpathsolutions.co.uk)
