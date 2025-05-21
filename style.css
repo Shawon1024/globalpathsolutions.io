@@ -7,6 +7,11 @@
     font-family: 'Poppins', sans-serif;
 }
 
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
 html,body{
     display: grid;
     height: 100%;
@@ -29,11 +34,32 @@ html,body{
     padding: 0 50px;
 }
 
-.wrapper .title{
+.wrapper .title h1{
     font-size: 35px;
     font-weight: 500;
 }
 
-.wrapper .title span{
+.wrapper .title h1 span{
     font-weight: 700;
+}
+
+.btn{
+    background: #000;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5000px;
+    transition: all 0.3s;
+    display: inline-block;
+}
+
+.btn:hover{
+    background: #fff;
+    color: #000;
+    border: 1px solid #000;
+    -webkit-transform: scale(1.15);
+    transform: scaleY(1.15);
+    transition: all 0.3s;
 }
