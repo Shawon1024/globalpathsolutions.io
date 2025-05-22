@@ -5,13 +5,28 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeButton = document.querySelector('.close-button');
 
     function showModal(event) {
-        event.preventDefault();
+        if (event) {
+            event.preventDefault();
+        }
+
         modal.style.display = 'flex';
+
+        requestAnimationFrame(() => {
+            modal.classList.add('modal-open');
+        });
     }
 
     function hideModal() {
-        modal.style.display = 'none';
+        modal.classList.remove('modal-open');
+
+        const onTransitionEnd = () => {
+            modal.style.display = 'none';
+            modal.removeEventListener('transitionend', onTransitionEnd);
+        };
+        modal.addEventListener('transitionend', onTransitionEnd);
     }
+
+    modal.style.display = 'none';
 
     if (privacyLink) {
         privacyLink.addEventListener('click', showModal);
@@ -31,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape' && modal.style.display === 'flex') {
+        if (event.key === 'Escape' && modal.classList.contains('modal-open')) {
             hideModal();
         }
     });
