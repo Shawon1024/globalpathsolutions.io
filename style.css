@@ -1,18 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
 
-a{
+a {
     text-decoration: none;
     color: inherit;
 }
 
-html,body{
+html,
+body {
     height: 100%;
     width: 100%;
     background: url("./assets/Background.jpg") no-repeat;
@@ -21,7 +22,7 @@ html,body{
     overflow-x: hidden;
 }
 
-::selection{
+::selection {
     color: #fff;
     background: #FC4782;;
 }
@@ -38,13 +39,13 @@ nav {
     justify-content: flex-start;
 }
 
-nav .logo{
+nav .logo {
     height: 80px;
     width: auto;
     display: block;
 }
 
-.wrapper{
+.wrapper {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -56,18 +57,19 @@ nav .logo{
     padding: 0 50px;
     text-align: center;
     padding-top: 150px;
+    padding-bottom: 50px;
 }
 
-.wrapper .title h1{
+.wrapper .title h1 {
     font-size: 35px;
     font-weight: 500;
 }
 
-.wrapper .title h1 span{
+.wrapper .title h1 span {
     font-weight: 700;
 }
 
-.btn{
+.btn {
     background: #000;
     font-size: 12px;
     font-weight: 500;
@@ -79,16 +81,152 @@ nav .logo{
     display: inline-block;
 }
 
-.btn:hover{
+.btn:hover {
     background: #fff;
     color: #000;
     border: 1px solid #000;
     -webkit-transform: scale(1.15);
-    transform: scaleY(1.15);
+    transform: scale(1.15);
     transition: all 0.3s;
 }
 
-@media (max-width: 600px) {
+.modal-btn {
+    background: #2D4C69;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 5000px;
+    transition: all 0.3s;
+    display: inline-block;
+    margin-top: 15px;
+    border: 1px solid #2D4C69;
+}
+
+.modal-btn:hover {
+    background: #FC4782;
+    color: #fff;
+    border: 1px solid #FC4782;
+    -webkit-transform: scale(1.05);
+    transform: scaleY(1.05);
+    transition: all 0.3s;
+}
+
+.site-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #2D4C69;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9em;
+    z-index: 5;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-info-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.site-footer p {
+    margin-bottom: 5px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 8px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #FC4782;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 30px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+    text-align: center;
+    color: #333;
+    font-size: 1.1em;
+}
+
+.modal-content h2 {
+    color: #2D4C69;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+.modal-content p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #FC4782;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+@media (max-width: 768px) {
     nav {
         padding: 15px 15px 0 15px;
     }
@@ -104,5 +242,29 @@ nav .logo{
     .btn {
         padding: 8px 16px;
         font-size: 0.9em;
+    }
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .footer-info-group {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .site-footer p {
+        margin-bottom: 0;
+        margin-right: 20px;
+        text-align: left;
+    }
+
+    .footer-links {
+        justify-content: flex-start;
+    }
+
+    .footer-links a {
+        margin: 0 10px;
     }
 }
