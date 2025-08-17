@@ -43,33 +43,38 @@ $$('.reveal').forEach(el => io.observe(el));
 $('#year').textContent = new Date().getFullYear();
 $('.to-top').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
 
-// contact form (Formspree-ready; stays helpful in demo)
-const form = $('#contactForm');
-const status = $('#formStatus');
-const ENDPOINT = ''; // e.g. 'https://formspree.io/f/xxxxxx'
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  status.textContent = '';
-  if ($('#website').value) return; // honeypot
 
-  const emailOK = /[^\s@]+@[^\s@]+\.[^\s@]+/.test($('#email').value);
-  if (!$('#name').value.trim() || !emailOK || $('#message').value.trim().length < 10){
-    status.textContent = 'Please complete all fields (message ≥ 10 chars).';
-    return;
-  }
+// Contact form handler
+const form = document.getElementById("#contactForm");
+const status = document.getElementById("#formStatus");
 
-  if (!ENDPOINT){
-    status.textContent = 'Thanks! (Demo mode). Add your Formspree ENDPOINT in js/script.js to enable sending.';
-    form.reset();
-    return;
-  }
+form.addEventListener("submit", async function(event) {
+  event.preventDefault();
+  const data = new FormData(form);
 
-  try{
-    status.textContent = 'Sending…';
-    const rsp = await fetch(ENDPOINT, { method:'POST', headers:{'Accept':'application/json'}, body:new FormData(form) });
-    status.textContent = rsp.ok ? 'Thanks! Your message has been sent.' : 'Something went wrong. Please email us directly.';
-    if (rsp.ok) form.reset();
-  }catch(err){
-    status.textContent = 'Network error. Please try again or email us.';
+  try {
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      status.className = "success";
+      status.innerHTML = "✅ Thank you! Your message has been sent.";
+      status.style.display = "block";
+      form.reset();
+    } else {
+      const errorData = await response.json();
+      throw new Error(errorData.error || "Something went wrong.");
+    }
+  } catch (error) {
+    status.className = "error";
+    status.innerHTML = "❌ Sorry, there was a problem sending your message.";
+    status.style.display = "block";
   }
 });
+
+
+
+
