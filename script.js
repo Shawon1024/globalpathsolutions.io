@@ -43,38 +43,101 @@ $$('.reveal').forEach(el => io.observe(el));
 $('#year').textContent = new Date().getFullYear();
 $('.to-top').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
 
+// Contact form handler (inline validation + AJAX submit)
+(() => {
+  const form   = document.getElementById('contactForm');
+  if (!form) return;
 
-// Contact form handler
-const form = document.getElementById("#contactForm");
-const status = document.getElementById("#formStatus");
+  const status = document.getElementById('form-status');
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const honeypot = document.getElementById('website'); // hidden field
 
-form.addEventListener("submit", async function(event) {
-  event.preventDefault();
-  const data = new FormData(form);
+  const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const phoneRx = /^[0-9+()\-.\s]{7,20}$/;
 
-  try {
-    const response = await fetch(form.action, {
-      method: form.method,
-      body: data,
-      headers: { 'Accept': 'application/json' }
+  const showStatus = (msg, type) => {
+    status.textContent = msg;
+    status.className = type; // sets to "success" or "error"
+    status.style.display = 'block';
+  };
+
+  const clearCustomErrors = () => {
+    ['name', 'email', 'number', '_subject', 'message'].forEach(id => {
+      const el = form.querySelector(`[name="${id}"]`) || document.getElementById(id);
+      if (el) el.setCustomValidity('');
     });
+  };
 
-    if (response.ok) {
-      status.className = "success";
-      status.innerHTML = "✅ Thank you! Your message has been sent.";
-      status.style.display = "block";
-      form.reset();
-    } else {
-      const errorData = await response.json();
-      throw new Error(errorData.error || "Something went wrong.");
+  const extraChecks = () => {
+    clearCustomErrors();
+    const name    = form.name.value.trim();
+    const email   = form.email.value.trim();
+    const number  = form.number.value.trim();
+    const subject = form._subject.value.trim();
+    const message = form.message.value.trim();
+
+    if (name.length < 2) {
+      form.name.setCustomValidity('Please enter your full name.');
     }
-  } catch (error) {
-    status.className = "error";
-    status.innerHTML = "❌ Sorry, there was a problem sending your message.";
-    status.style.display = "block";
-  }
-});
+    if (!emailRx.test(email)) {
+      form.email.setCustomValidity('Please enter a valid email address.');
+    }
+    if (!phoneRx.test(number)) {
+      form.number.setCustomValidity('Please enter a valid phone number.');
+    }
+    if (subject.length < 3) {
+      form._subject.setCustomValidity('Subject must be at least 3 characters.');
+    }
+    if (message.length < 10) {
+      form.message.setCustomValidity('Please provide a bit more detail (10+ chars).');
+    }
 
+    // return validity after custom messages
+    return form.checkValidity();
+  };
 
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
+    // block bots
+    if (honeypot && honeypot.value.trim() !== '') {
+      return; // silently drop
+    }
 
+    // HTML5 + custom checks
+    if (!extraChecks()) {
+      form.reportValidity(); // native tooltip UI
+      return;
+    }
+
+    // disabled state
+    const originalLabel = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    try {
+      const formData = new FormData(form);
+
+      // If you want to pass the newsletter choice to Formspree:
+      // (Already included via checkbox name="subscribe")
+
+      const res = await fetch(form.action, {
+        method: form.method || 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: formData
+      });
+
+      if (!res.ok) throw new Error('Network response was not ok');
+
+      // Formspree returns JSON when Accept: application/json is set
+      // We don't need the body, just show success and reset.
+      showStatus('✅ Thank you! Your message has been sent.', 'success');
+      form.reset();
+    } catch (err) {
+      showStatus('❌ Sorry, there was a problem sending your message. Please try again.', 'error');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
+    }
+  });
+})();
