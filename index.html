@@ -6,6 +6,7 @@
   <title>GlobalPath Solutions Ltd — Your Path to Global Success</title>
   <meta name="description" content="Cybersecurity, Cloud Integration, and IT Infrastructure solutions by GlobalPath Solutions Ltd." />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="icon" type="image/x-icon" href="assets/icon.png">
   <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
@@ -15,19 +16,25 @@
   <header class="header" id="header">
     <div class="container nav">
       <a class="brand" href="#">
-  <img src="assets/Logo.png" alt="GlobalPath Solutions Ltd Logo" class="logo">
-</a>
+        <img src="assets/Logo.png" alt="GlobalPath Solutions Ltd Logo" class="logo">
+      </a>
 
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
+
       <nav class="primary-nav" id="primary-nav">
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#services">Services</a>
+        <a href="#industries">Industries</a>
+        <a href="#partners">Partners</a>
+        <a href="#testimonials">Testimonials</a>
         <a href="#why">Why Us</a>
+        <a href="#credentials">Registrations</a>
         <a class="cta" href="#contact">Contact</a>
       </nav>
+
     </div>
   </header>
 
@@ -49,78 +56,414 @@
   <section id="about" class="section">
     <div class="container grid-2">
       <div class="about-text reveal">
+        <p class="subhead">About Us</p>
         <h2>Who We Are</h2>
-        <p>We blend hands-on engineering with clear business outcomes. Every initiative is secure, scalable and aligned to your goals. From audits to architecture to delivery, we focus on measurable results and transparent communication.</p>
+        <p class="about-lead">GlobalPath Solutions Ltd is a multidisciplinary service company helping individuals and businesses move forward with confidence. From technology consulting to business administration, from visa guidance to travel solutions — we are a single trusted partner for diverse needs.</p>
+        
         <ul class="checks">
-          <li>Outcome-driven delivery</li>
-          <li>Transparent pricing & timelines</li>
-          <li>Trusted by SMEs & startups</li>
+          <li>Software development & IT consultancy</li>
+          <li>Business advisory, admin & accounting support</li>
+          <li>Visa and immigration guidance (student, visitor, work)</li>
+          <li>Passport & official application assistance</li>
+          <li>Air tickets, travel and booking services</li>
         </ul>
+
+        <p>Whether you are a business looking to streamline operations or an individual planning your next journey, we are here to make the process smooth, professional, and hassle-free.</p>
+
+      <div class="about-badges">
+        <span class="pill">Software Development</span>
+        <span class="pill">IT Consultancy</span>
+        <span class="pill">Business Advisory</span>
+        <span class="pill">Visa & Immigration Support</span>
+        <span class="pill">Travel & Ticketing</span>
+      </div>
+
       </div>
       <figure class="about-media reveal" aria-hidden="true">
         <img src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=1600&auto=format&fit=crop" alt="" loading="lazy">
-        <figcaption class="visually-hidden">Collaborative team at work</figcaption>
+        <figcaption class="visually-hidden">GlobalPath Solutions Ltd – delivering IT, business, and travel support</figcaption>
       </figure>
     </div>
   </section>
 
-  <!-- Services -->
-  <section id="services" class="section section--alt">
-    <div class="container">
-      <h2 class="reveal">Our Services</h2>
-      <div class="cards">
-        <article class="card reveal">
-          <div class="icon-wrap">
-            <!-- shield check -->
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M12 3l8 4v5c0 5-3.5 9-8 9s-8-4-8-9V7l8-4z"/><path fill="none" stroke="currentColor" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
-          </div>
-          <h3>Cybersecurity Consulting</h3>
-          <p>Risk assessments, hardening and incident readiness tailored to your stack. Security baked in from design to deploy.</p>
-        </article>
-        <article class="card reveal">
-          <div class="icon-wrap">
-            <!-- cloud -->
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M17.5 19a4.5 4.5 0 0 0 0-9 5.5 5.5 0 0 0-10.8 1.5A4 4 0 0 0 7 19h10.5z"/></svg>
-          </div>
-          <h3>Cloud Integration</h3>
-          <p>Plan, migrate and optimize across AWS, Azure or GCP with cost governance and strong reliability.</p>
-        </article>
-        <article class="card reveal">
-          <div class="icon-wrap">
-            <!-- server stack -->
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="6" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="14" width="18" height="6" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="7" cy="7" r="1"/><circle cx="7" cy="17" r="1"/></svg>
-          </div>
-          <h3>IT Infrastructure</h3>
-          <p>Resilient networks and systems that keep your business running — monitored, observable, and scalable.</p>
-        </article>
-      </div>
-    </div>
-  </section>
 
-  <!-- Why Us -->
-  <section id="why" class="section">
-    <div class="container">
-      <h2 class="reveal">Why Choose Us</h2>
-      <div class="why-grid">
-        <div class="why reveal">
-          <div class="why-icon">🌍</div>
-          <div><strong>Global Reach</strong><div class="muted">Remote collaboration across time zones.</div></div>
+  <!-- Services -->
+<section id="services" class="section section--alt">
+  <div class="container">
+    <h2 class="reveal">Our Services</h2>
+    <div class="cards">
+
+      <!-- Software Development -->
+      <article class="card reveal">
+        <div class="icon-wrap">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="none" stroke="currentColor" stroke-width="2" d="M3 5h18v12H3zM7 19h10"/>
+            <path fill="none" stroke="currentColor" stroke-width="2" d="M8 9l2 2-2 2M16 9l-2 2 2 2"/>
+          </svg>
         </div>
-        <div class="why reveal">
-          <div class="why-icon">⚡</div>
-          <div><strong>Fast Delivery</strong><div class="muted">Lean processes from discovery to value.</div></div>
+        <h3>Software Development</h3>
+        <p>Custom web & workflow tools built around your goals — lightweight, maintainable, and secure.</p>
+      </article>
+
+      <!-- IT Consultancy -->
+      <article class="card reveal">
+        <div class="icon-wrap">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path fill="none" stroke="currentColor" stroke-width="2" d="M12 7v6l4 2"/>
+          </svg>
         </div>
-        <div class="why reveal">
-          <div class="why-icon">💼</div>
-          <div><strong>Expert Team</strong><div class="muted">Seasoned engineers, clear communication.</div></div>
+        <h3>IT Consultancy</h3>
+        <p>Clear guidance on systems, integrations, and best practices to keep your operations smooth.</p>
+      </article>
+
+      <!-- Design (Brand & UI) -->
+      <article class="card reveal">
+        <div class="icon-wrap">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="none" stroke="currentColor" stroke-width="2" d="M3 21l7-2 9-9-5-5-9 9-2 7zM14 7l3 3"/>
+          </svg>
         </div>
-        <div class="why reveal">
-          <div class="why-icon">🔒</div>
-          <div><strong>Security First</strong><div class="muted">Best practices end-to-end.</div></div>
+        <h3>Specialised Design</h3>
+        <p>Brand & UI assets that look credible and convert — logos, landing visuals, and promo creatives.</p>
+      </article>
+
+      <!-- Business Advisory -->
+      <article class="card reveal">
+        <div class="icon-wrap">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="7" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path fill="none" stroke="currentColor" stroke-width="2" d="M7 7V5a2 2 0 012-2h6a2 2 0 012 2v2"/>
+          </svg>
         </div>
+        <h3>Business Advisory</h3>
+        <p>Practical advice for setup, compliance and growth — documentation, processes, and vendor guidance.</p>
+      </article>
+
+      <!-- Admin & Accounting Support -->
+      <article class="card reveal">
+        <div class="icon-wrap">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path fill="none" stroke="currentColor" stroke-width="2" d="M7 9h10M7 13h6"/>
+          </svg>
+        </div>
+        <h3>Admin & Accounting</h3>
+        <p>Day-to-day admin, invoicing, basic bookkeeping and filings to keep your business organised.</p>
+      </article>
+
+      <!-- Visa & Immigration Support -->
+      <article class="card reveal">
+        <div class="icon-wrap">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="5" width="14" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path fill="none" stroke="currentColor" stroke-width="2" d="M9 9h6M9 13h4"/>
+            <circle cx="19" cy="7" r="2" fill="none" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3>Visa & Application Support</h3>
+        <p>Student, visitor and other visa guidance with full form preparation and document checklists.</p>
+      </article>
+
+      <!-- Passport & Government Applications -->
+      <article class="card reveal">
+        <div class="icon-wrap">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="6" y="3" width="12" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="12" cy="9" r="2" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path fill="none" stroke="currentColor" stroke-width="2" d="M8 14h8"/>
+          </svg>
+        </div>
+        <h3>Passport & Official Docs</h3>
+        <p>Assistance with passport services and government applications, end-to-end support.</p>
+      </article>
+
+      <!-- Travel & Ticketing -->
+      <article class="card reveal">
+        <div class="icon-wrap">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="none" stroke="currentColor" stroke-width="2" d="M10 21l1-4-4-4 2-2 4 4 4-1 3 3-7 2zM2 6l6 6"/>
+          </svg>
+        </div>
+        <h3>Travel & Ticketing</h3>
+        <p>Flight booking and ticketing support with flexible options for individuals and businesses.</p>
+      </article>
+
+            <!-- Training & Workshops -->
+      <article class="card reveal">
+        <div class="icon-wrap">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="none" stroke="currentColor" stroke-width="2" d="M4 19h16M4 7h16M4 12h16"/>
+            <circle cx="8" cy="12" r="2" fill="none" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3>Training & Workshops</h3>
+        <p>Guided sessions on business tools, IT basics, and process know-how for teams and individuals.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Industries We Serve -->
+<section id="industries" class="section section--alt">
+  <div class="container">
+    <h2 class="reveal">Industries We Serve</h2>
+    <div class="cards" style="margin-top:10px">
+      
+      <article class="card reveal">
+        <div class="icon-wrap">
+          <!-- Education -->
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="none" stroke="currentColor" stroke-width="2" d="M3 7l9-4 9 4-9 4-9-4zm2 6v4l7 3 7-3v-4"/>
+          </svg>
+        </div>
+        <h3>Education</h3>
+        <p>Student visa guidance, admissions documentation, and travel planning.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon-wrap">
+          <!-- Travel & Hospitality -->
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="none" stroke="currentColor" stroke-width="2" d="M2 7l9 6 4-3 7 5M13 13v8"/>
+          </svg>
+        </div>
+        <h3>Travel & Hospitality</h3>
+        <p>Air ticketing, itinerary support, and booking assistance for individuals & teams.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon-wrap">
+          <!-- Startups & SMEs -->
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path fill="none" stroke="currentColor" stroke-width="2" d="M7 17v4M17 17v4M7 9h10M7 13h6"/>
+          </svg>
+        </div>
+        <h3>Startups & SMEs</h3>
+        <p>Business advisory, admin, invoicing and light accounting to stay organised.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon-wrap">
+          <!-- Technology -->
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="6" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path fill="none" stroke="currentColor" stroke-width="2" d="M8 10h8M8 14h5"/>
+          </svg>
+        </div>
+        <h3>Technology</h3>
+        <p>Software development and practical IT consultancy for secure, efficient systems.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon-wrap">
+          <!-- Professional Services -->
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="7" cy="7" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path fill="none" stroke="currentColor" stroke-width="2" d="M2 21v-1a5 5 0 015-5m7-7h6M12 9h8M12 13h8"/>
+          </svg>
+        </div>
+        <h3>Professional Services</h3>
+        <p>Document preparation, passport & application assistance with clear checklists.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon-wrap">
+          <!-- Nonprofits & Community -->
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="none" stroke="currentColor" stroke-width="2" d="M12 21s-7-4.35-7-10a4 4 0 018 0 4 4 0 018 0c0 5.65-7 10-7 10z"/>
+          </svg>
+        </div>
+        <h3>Nonprofits & Community</h3>
+        <p>Accessible support for applications and operational tools on a budget.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Partners -->
+<section id="partners" class="partners">
+  <div class="container">
+    <h2>Our Partners</h2>
+    <p class="muted" style="margin-top:6px">Trusted by teams we proudly support</p>
+
+    <div class="partners-marquee" aria-label="Partner logos scrolling left to right">
+      <div class="partners-track">
+
+        <!-- Set A -->
+        <a href="https://flyygo.co.uk/home" target="_blank" rel="noopener" aria-label="FlyGo Ltd">
+          <img src="assets/flygo.png" alt="FlyGo Ltd logo">
+        </a>
+        <a href="https://partner2.com" target="_blank" rel="noopener" aria-label="Partner 2">
+          <img src="images/partner2.png" alt="Partner 2 logo">
+        </a>
+        <a href="https://partner3.com" target="_blank" rel="noopener" aria-label="Partner 3">
+          <img src="images/partner3.png" alt="Partner 3 logo">
+        </a>
+        <a href="https://partner4.com" target="_blank" rel="noopener" aria-label="Partner 4">
+          <img src="images/partner4.png" alt="Partner 4 logo">
+        </a>
+
+        <!-- Set B (duplicate for seamless loop) -->
+        <a href="https://www.flyygo.co.uk/home" target="_blank" rel="noopener" aria-label="FlyGo Ltd">
+          <img src="assets/flygo.png" alt="FlyGo Ltd logo">
+        </a>
+        <a href="https://partner2.com" target="_blank" rel="noopener" aria-label="Partner 2">
+          <img src="images/partner2.png" alt="Partner 2 logo">
+        </a>
+        <a href="https://partner3.com" target="_blank" rel="noopener" aria-label="Partner 3">
+          <img src="images/partner3.png" alt="Partner 3 logo">
+        </a>
+        <a href="https://partner4.com" target="_blank" rel="noopener" aria-label="Partner 4">
+          <img src="images/partner4.png" alt="Partner 4 logo">
+        </a>
+
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section id="testimonials" class="section">
+  <div class="container">
+    <h2 class="reveal">What Clients Say</h2>
+
+    <div class="cards" style="margin-top:10px">
+      <article class="card reveal testimonial">
+        <div class="quote-mark" aria-hidden="true">“</div>
+        <p>
+          GlobalPath guided us through a complex visa process with clarity and care. Smooth experience end to end.
+        </p>
+        <div class="t-meta">
+          <img src="assets/client1.jpg" alt="Arifa S." class="avatar">
+          <strong>Arifa S.</strong>
+          <span class="muted">Student Visa Applicant</span>
+        </div>
+      </article>
+
+      <article class="card reveal testimonial">
+        <div class="quote-mark" aria-hidden="true">“</div>
+        <p>
+          Their admin and accounting support kept us organised and on time with filings. Professional and responsive.
+        </p>
+        <div class="t-meta">
+          <img src="assets/shawon.JPG" alt="Rashidul H." class="avatar">
+          <strong>Rashidul H.</strong>
+          <span class="muted">Director, Services Firm</span>
+        </div>
+      </article>
+
+      <article class="card reveal testimonial">
+        <div class="quote-mark" aria-hidden="true">“</div>
+        <p>
+          We needed a simple booking tool and practical IT advice — delivered quickly and within budget.
+        </p>
+        <div class="t-meta">
+          <img src="assets/client3.jpg" alt="Elena M." class="avatar">
+          <strong>Elena M.</strong>
+          <span class="muted">Owner, Travel Boutique</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Why Us -->
+<section id="why" class="section">
+  <div class="container">
+    <h2 class="reveal">Why Choose Us</h2>
+    <div class="why-grid">
+
+      <div class="why reveal">
+        <div class="why-icon">💼</div>
+        <div>
+          <strong>Trusted Expertise</strong>
+          <div class="muted">IT, business support & consultancy you can rely on.</div>
+        </div>
+      </div>
+
+      <div class="why reveal">
+        <div class="why-icon">🤝</div>
+        <div>
+          <strong>End-to-End Support</strong>
+          <div class="muted">Software, advisory, visas and travel — one partner.</div>
+        </div>
+      </div>
+
+      <div class="why reveal">
+        <div class="why-icon">⏱️</div>
+        <div>
+          <strong>Proven Reliability</strong>
+          <div class="muted">Fast turnaround with clear updates and ownership.</div>
+        </div>
+      </div>
+
+      <div class="why reveal">
+        <div class="why-icon">🌍</div>
+        <div>
+          <strong>Global Knowledge</strong>
+          <div class="muted">International processes, documentation and compliance.</div>
+        </div>
+      </div>
+
+      <div class="why reveal">
+        <div class="why-icon">💡</div>
+        <div>
+          <strong>Transparent Pricing</strong>
+          <div class="muted">Straightforward fees, no surprises — value first.</div>
+        </div>
+      </div>
+
+      <div class="why reveal">
+        <div class="why-icon">⭐</div>
+        <div>
+          <strong>Client-Centric</strong>
+          <div class="muted">Personalised service focused on real outcomes.</div>
+        </div>
+      </div>
+
+      <div class="why reveal">
+        <div class="why-icon">🔒</div>
+        <div>
+          <strong>Secure Processes</strong>
+          <div class="muted">Best practices in IT, applications and data protection.</div>
+        </div>
+      </div>
+
+      <div class="why reveal">
+        <div class="why-icon">📈</div>
+        <div>
+          <strong>Growth Focused</strong>
+          <div class="muted">Helping you scale confidently with sustainable systems.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Registrations & Codes -->
+<section id="credentials" class="section section--alt">
+  <div class="container">
+    <h2 class="reveal">Registrations & Codes</h2>
+    <p class="muted">GlobalPath Solutions Ltd is officially registered and aligned with recognised UK SIC classifications.</p>
+
+    <!-- Pills with codes -->
+      <span class="pill">62012 — Business & domestic software development</span>
+      <span class="pill">62020 — Information technology consultancy activities</span>
+      <span class="pill">74100 — Specialised design activities</span>
+      <span class="pill">82990 — Other business support service activities n.e.c.</span>
+  </div>
+</section>
+
+
+
+
 
   <!-- Contact -->
   <section id="contact" class="section contact" aria-label="Contact">
@@ -131,10 +474,51 @@
         <div class="contact-text reveal">
           <h2>Let’s talk</h2>
           <p class="muted light">Tell us about your goals. We’ll reply within one business day.</p>
-          <p class="light"><strong>Email:</strong> <a class="light" href="mailto:info@example.com">info@example.com</a><br>
-            <strong>Phone:</strong> <a class="light" href="tel:+441234567890">+44 1234 567 890</a></p>
+          <ul class="info-list">
+          <li>
+            <i class="fas fa-envelope"></i>
+            <a class="light" href="mailto:info@example.com">info@example.com</a>
+          </li>
+          <li>
+            <i class="fas fa-phone"></i>
+            <a class="light" href="tel:+441234567890">+44 1234 567 890</a>
+          </li>
+          <li>
+            <i class="fas fa-location-dot"></i>
+            <span class="light">GlobalPath Solutions Ltd, 123 Business Street, Dhaka, Bangladesh</span>
+          </li>
+        </ul>
+
+      <div class="social-links">
+      <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="#" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="#" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+    </div>
+
+    <!-- Compact newsletter (left column) -->
+<div class="newsletter-box mini">
+  <h3 class="light" style="margin:0 0 .25rem 0;">Subscribe to our newsletter</h3>
+  <form id="newsletterFormLeft"
+        class="newsletter-form"
+        action="https://YOUR_DC.list-manage.com/subscribe/post?u=YOUR_U_ID&amp;id=YOUR_LIST_ID"
+        method="POST" target="mcTarget" novalidate>
+    <input type="email" name="EMAIL" placeholder="Enter your email" required>
+    <button type="submit" class="btn btn--primary">Subscribe</button>
+    <div aria-hidden="true" style="position:absolute; left:-5000px;">
+      <input type="text" name="b_YOUR_U_ID_YOUR_LIST_ID" tabindex="-1" value="">
+    </div>
+  </form>
+  <div id="newsletterStatusLeft" class="form-status" aria-live="polite"></div>
+</div>
+
+
+    
         </div>
-        <form id="contactForm" class="form reveal" novalidate>
+        
+        <form id="contactForm" class="form reveal" action="https://formspree.io/f/manbzqal" method="POST" novalidate>
           <div class="field">
             <label for="name">Name</label>
             <input id="name" name="name" type="text" placeholder="Jane Doe" required>
@@ -144,15 +528,30 @@
             <input id="email" name="email" type="email" placeholder="you@company.com" required>
           </div>
           <div class="field">
+            <label for="number">Contact Number</label>
+            <input id="number" name="number" type="number" placeholder="+441234567890" required>
+          </div>
+          <div class="field">
+            <label for="subject">Subject</label>
+            <input id="subject" name="_subject" type="text" placeholder="Your Subject" required>
+          </div>
+          <div class="field">
             <label for="message">Message</label>
             <textarea id="message" name="message" rows="5" placeholder="What can we help you achieve?" required></textarea>
           </div>
+          <label class="newsletter-option">
+            <input type="checkbox" name="subscribe"> Subscribe to our newsletter!
+          </label>
           <input id="website" name="website" type="text" class="hp" autocomplete="off" tabindex="-1">
           <button class="btn btn--primary" type="submit">Send Message</button>
-          <p id="formStatus" class="form-status" aria-live="polite"></p>
+          
+          <div id="form-status"></div>
         </form>
       </div>
     </div>
+
+    <iframe name="mcTarget" style="display:none"></iframe>
+
   </section>
 
   <!-- Footer -->
@@ -162,54 +561,6 @@
     </div>
     <button class="to-top" aria-label="Back to top">↑</button>
   </footer>
-
-
-<!-- Add this to your HTML, preferably just before </body> -->
-<div id="maintenance-popup" style="
-  display:none;
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.7);
-  z-index:9999;
-  justify-content:center;
-  align-items:center;
-">
-  <div style="
-    background:#fff;
-    padding:2rem;
-    border-radius:8px;
-    max-width:500px;
-    text-align:center;
-    box-shadow:0 5px 15px rgba(0,0,0,0.3);
-  ">
-    <h2>Site Under Maintenance</h2>
-    <p>Some content may not be suitable or fully available at the moment. We apologize for the inconvenience. We'll be back shortly!</p>
-    <button id="close-popup" style="
-      margin-top:1rem;
-      padding:0.5rem 1rem;
-      background:#007BFF;
-      color:#fff;
-      border:none;
-      border-radius:4px;
-      cursor:pointer;
-    ">Close</button>
-  </div>
-</div>
-
-<script>
-  // Show popup on page load
-  window.addEventListener('load', function() {
-    document.getElementById('maintenance-popup').style.display = 'flex';
-  });
-
-  // Close popup on button click
-  document.getElementById('close-popup').addEventListener('click', function() {
-    document.getElementById('maintenance-popup').style.display = 'none';
-  });
-</script>
 
 
 
