@@ -141,3 +141,57 @@ $('.to-top').addEventListener('click', () => window.scrollTo({top:0, behavior:'s
     }
   });
 })();
+
+// Terms & Conditions and Ptivacy Policy
+(function () {
+    const openClass = 'is-open';
+    const bodyLockClass = 'modal-open';
+    let lastFocus = null;
+
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      lastFocus = document.activeElement;
+      modal.classList.add(openClass);
+      document.body.style.overflow = 'hidden'; // lock scroll
+      const dialog = modal.querySelector('.modal__dialog');
+      if (dialog) dialog.focus();
+    }
+
+    function closeModal(modal) {
+      modal.classList.remove(openClass);
+      document.body.style.overflow = ''; // unlock scroll
+      if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+    }
+
+    // Open via footer links
+    document.querySelectorAll('[data-modal-target]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const id = link.getAttribute('data-modal-target');
+        openModal(id);
+      });
+    });
+
+    // Close via overlay or X
+    document.querySelectorAll('.modal [data-close-modal]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const modal = btn.closest('.modal');
+        if (modal) closeModal(modal);
+      });
+    });
+
+    // Close on Esc
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal.is-open').forEach(m => closeModal(m));
+      }
+    });
+
+    // Close when clicking overlay background (but not dialog)
+    document.querySelectorAll('.modal').forEach(modal => {
+      const overlay = modal.querySelector('.modal__overlay');
+      overlay && overlay.addEventListener('click', () => closeModal(modal));
+    });
+  })();
+  
