@@ -805,3 +805,95 @@ nav a:hover::after {
 html, body {
   overflow-x: hidden;
 }
+
+/* ====== Legal Modals ====== */
+/* ====== Terms & Conditions and Privacy Policy ====== */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 1000000;
+}
+
+.modal.is-open { display: block; }
+
+.modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(2,6,23,.55); /* on-brand dark overlay */
+  backdrop-filter: blur(2px);
+}
+
+.modal__dialog {
+  position: relative;
+  margin: 40px auto;
+  width: min(820px, 92%);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 18px 40px rgba(2,6,23,.2);
+  max-height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  outline: none;
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-alt);
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+}
+
+.modal__header h3 {
+  margin: 0;
+  color: var(--navy);
+  font-size: 1.1rem;
+}
+
+.modal__close {
+  border: 0;
+  background: transparent;
+  font-size: 26px;
+  line-height: 1;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: background .2s ease, transform .15s ease;
+}
+.modal__close:hover { background: rgba(30,144,255,.08); transform: scale(1.05); }
+
+.modal__body {
+  padding: 18px;
+  overflow: auto;
+  color: var(--ink);
+}
+
+.modal__body h4 { margin: 16px 0 6px; color: var(--navy); }
+.modal__body p  { margin: 8px 0; color: var(--muted); }
+
+/* Footer legal links */
+.footer .legal-link {
+  color: #dbeafe;
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(219,234,254,.35);
+  transition: color .2s ease, border-color .2s ease;
+}
+.footer .legal-link:hover {
+  color: #ffffff;
+  border-color: rgba(255,255,255,.6);
+}
+
+/* Small screens: more height, tighter paddings */
+@media (max-width: 640px) {
+  .modal__dialog {
+    margin: 20px auto;
+    max-height: calc(100vh - 40px);
+  }
+  .modal__body { padding: 14px; }
+}
