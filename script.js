@@ -194,4 +194,99 @@ $('.to-top').addEventListener('click', () => window.scrollTo({top:0, behavior:'s
       overlay && overlay.addEventListener('click', () => closeModal(modal));
     });
   })();
-  
+
+  window.addEventListener('DOMContentLoaded', () => {
+  const globeEl = document.querySelector('.hero-globe');
+  const twinkle = document.querySelector('.hero-twinkle');
+  let vGlobe;
+
+  // --- Rotating globe (unchanged look) ---
+  if (globeEl && window.VANTA && VANTA.GLOBE) {
+    vGlobe = VANTA.GLOBE({
+      el: globeEl,
+      mouseControls: true,
+      touchControls: true,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
+      color: 0x3bb6d1,
+      backgroundColor: 0x000000, // keep solid background; we don't touch backgroundAlpha
+      size: 1.15,
+    });
+  }
+
+  // --- Twinkling star overlay (animated canvas) ---
+if (twinkle) {
+  const ctx = twinkle.getContext('2d', { alpha: true });
+  let w = 0, h = 0, dpr = 1, stars = [], rafId = 0;
+
+  const RND = (a, b) => Math.random() * (b - a) + a;
+
+  function makeStars(count) {
+    return Array.from({ length: count }, () => ({
+      x: RND(0, w),
+      y: RND(0, h),
+      r: RND(0.6, 1.8),
+      base: RND(0.25, 0.55),
+      amp: RND(0.18, 0.38),
+      spd: RND(0.012, 0.028),
+      ph: RND(0, Math.PI * 2),
+      bluish: Math.random() < 0.25
+    }));
+  }
+
+  function resizeToHero() {
+    const hero = twinkle.closest('.hero');
+    if (!hero) return;
+    const rect = hero.getBoundingClientRect();
+
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = Math.max(1, Math.floor(rect.width));
+    h = Math.max(1, Math.floor(rect.height));
+
+    // canvas pixel size
+    twinkle.width  = w * dpr;
+    twinkle.height = h * dpr;
+
+    // canvas CSS size (we still keep absolute/inset:0 in CSS)
+    twinkle.style.width  = w + 'px';
+    twinkle.style.height = h + 'px';
+
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    const count = Math.round(Math.min(180, Math.max(70, (w * h) / 18000)));
+    stars = makeStars(count);
+  }
+
+  function frame() {
+    ctx.clearRect(0, 0, w, h);
+    for (const s of stars) {
+      s.ph += s.spd;
+      const a = s.base + Math.sin(s.ph) * s.amp; // 0..1
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${s.bluish ? '191,220,255' : '255,255,255'},${Math.max(0, Math.min(1, a)).toFixed(2)})`;
+      ctx.fill();
+    }
+    rafId = requestAnimationFrame(frame);
+  }
+
+  // keep size correct across browser UI changes (esp. mobile address bar)
+  const ro = new ResizeObserver(resizeToHero);
+  ro.observe(twinkle.closest('.hero'));
+
+  // first paint
+  resizeToHero();
+  rafId = requestAnimationFrame(frame);
+
+  window.addEventListener('beforeunload', () => {
+    try { ro.disconnect(); } catch(e) {}
+    try { cancelAnimationFrame(rafId); } catch(e) {}
+  }, { passive: true });
+}
+
+  window.addEventListener('beforeunload', () => {
+    try { vGlobe && vGlobe.destroy(); } catch(e){}
+  });
+});
