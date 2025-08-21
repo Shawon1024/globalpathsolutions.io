@@ -4,6 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GlobalPath Solutions Ltd — Your Path to Global Success</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.dots.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.globe.min.js"></script>
   <meta name="description" content="Cybersecurity, Cloud Integration, and IT Infrastructure solutions by GlobalPath Solutions Ltd." />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -40,8 +43,12 @@
 
   <!-- Hero -->
   <section class="hero" id="home" aria-label="Hero">
-    <div class="hero-bg" role="img" aria-label="Global business skyline background"></div>
+    <div class="hero-bg">
+    <div class="hero-stars" aria-hidden="true"></div>
+    <div class="hero-globe" aria-hidden="true"></div>
+    </div>
     <div class="hero-overlay"></div>
+    <canvas class="hero-twinkle" aria-hidden="true"></canvas>
     <div class="container hero-content">
       <h1>Your Path to <span>Global Success</span></h1>
       <p class="lead">Secure, scalable and cost-effective solutions across Cybersecurity, Cloud and IT Infrastructure.</p>
